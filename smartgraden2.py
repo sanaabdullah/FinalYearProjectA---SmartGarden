@@ -8,7 +8,7 @@ import datetime
 
 GPIO.setmode(GPIO.BCM)
 
-# Set sensor type : Options are DHT11,DHT22 or AM2302
+# Set sensor type : Options are DHT11, DHT22 or AM2302
 DHT11_sensor=Adafruit_DHT.DHT11
  
 # Set GPIO sensor is connected to
@@ -20,14 +20,22 @@ Water_pump = 17 # Relay 2
 Ventilation_fan = 15 # Relay 3
 Solenoid_valve = 14 # Relay 4
 
+# Define sensor channels
+light_channel = 0
+moisture_channel  = 1
+waterlevel_channel  = 2
+
+# Define delay between readings
+delay = 2
+
+# Define relay pins
+relay_pins = [18,17,15,14]
+
 # Set the gpio pin to an input
 GPIO.setup(WaterLevel_gpio, GPIO.IN)
 
-relay_pins = [18,17,15,14]
-
 #setting the mode for all pins so all will be switched on 
 GPIO.setup(relay_pins, GPIO.OUT)
-
 
 #for loop where pin = 18 next 17 ,15, 14 
 for pin in relay_pins :
@@ -37,7 +45,7 @@ for pin in relay_pins :
 # Open SPI bus
 spi = spidev.SpiDev()
 spi.open(0,0)
- 
+
 # Function to read SPI data from MCP3008 chip
 # Channel must be an integer 0-7
 def ReadChannel(channel):
@@ -52,14 +60,6 @@ def ConvertVolts(data,places):
     volts = round(volts,places)
     return volts
 
-# Define sensor channels
-light_channel = 0
-moisture_channel  = 1
-waterlevel_channel  = 2
-
-# Define delay between readings
-delay = 2
- 
 while True:
  
   # Read the light sensor data
@@ -70,6 +70,7 @@ while True:
     moisture_level = ReadChannel(moisture_channel)
     moisture_volts = ConvertVolts(moisture_level,2)
   
+  # Read the water level sensor data
     water_level = ReadChannel(waterlevel_channel)
     water_volts = ConvertVolts(water_level,2)
  
@@ -93,11 +94,11 @@ while True:
     else:
         print('Failed to get reading. Try again!')
     
-    #print("Water Level: {} ({}V)".format(water_level,water_volts))
+    # print("Water Level: {} ({}V)".format(water_level,water_volts))
     if GPIO.input(WaterLevel_gpio) == False and water_level > 600:
         print("Water Level: Almost empty")
         
-        #opening the solenoid valve
+        # opening the solenoid valve
         GPIO.output(Solenoid_valve,  GPIO.LOW)
         if GPIO.input(Solenoid_valve) == False:
             print("***FILLING UP THE TANK***")

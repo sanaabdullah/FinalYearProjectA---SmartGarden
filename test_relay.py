@@ -5,14 +5,16 @@ import time
 
 # setting a current mode
 GPIO.setmode(GPIO.BCM)
+
 #removing the warings 
 GPIO.setwarnings(False)
+
 #creating a list (array) with the number of GPIO's that we use 
 pins = [18,17,15,14]
 # GPIO 18 is light bulb - Relay 1 
 # GPIO 17 is Water pump - Relay 2
 # GPIO 15 is Ventilation fan - Relay 3
-# GPIO 14 is Solenoie Valve - Relay 4
+# GPIO 14 is Solenoid Valve - Relay 4
 
 #setting the mode for all pins so all will be switched on 
 GPIO.setup(pins, GPIO.OUT)
@@ -21,11 +23,14 @@ GPIO.setup(pins, GPIO.OUT)
 for pin in pins :
 	#setting the GPIO to HIGH or 1 or true
 	GPIO.output(pin,  GPIO.HIGH)
-	#wait 0,5 second
+    
+	#wait 0.5 second
 	time.sleep(0.5)
+    
 	#setting the GPIO to LOW or 0 or false
 	GPIO.output(pin,  GPIO.LOW)
-	#wait 0,5 second
+    
+	#wait 0.5 second
 	time.sleep(0.5)
 
 	#Checking if the current relay is running and printing it 
@@ -33,8 +38,8 @@ for pin in pins :
 		print("Pin "+str(pin)+" is working" )
 		
 
-#same but the difference is that  we have 
-#for loop where pin = 14 next 15,17,18
+# same but the difference is that  we have 
+# for loop where pin = 14 next 15,17,18
 # backwards
 for pin in reversed(pins) :
 	GPIO.output(pin,  GPIO.HIGH)
