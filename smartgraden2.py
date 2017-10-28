@@ -60,6 +60,27 @@ def ConvertVolts(data,places):
     volts = round(volts,places)
     return volts
 
+ # create or open file for saving data (Need to do testing)
+def SaveToFile(filename,data):
+    
+    # get current date and time
+    current = strftime("%a, %d %b %Y %H:%M:%S", gmtime())
+
+    # create or open file for saving data
+    filename = filename + ".csv"
+    if os.path.exists(filename):
+        print("sensor_data.txt exists, opening now ... ...")
+        append_write = 'a' 
+    else:
+        print("file does exist, created a new one")
+        append_write = 'w'
+
+    with open(filename,append_write) as sensor_data:
+        data = "number" + str(x)  
+        lists = [current, data]
+        writer = csv.writer(sensor_data)
+        writer.writerow(lists)
+    
 while True:
  
   # Read the light sensor data
@@ -137,3 +158,4 @@ while True:
         
 # Wait before repeating loop
 time.sleep(delay)
+
