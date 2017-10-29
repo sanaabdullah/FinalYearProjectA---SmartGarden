@@ -5,10 +5,11 @@ import time
 import os
 import Adafruit_DHT
 import datetime
+from time import gmtime, strftime
+import csv
 
 GPIO.setmode(GPIO.BCM)
-
-# Set sensor type : Options are DHT11,DHT22 or AM2302
+  # Set sensor type : Options are DHT11,DHT22 or AM2302
 DHT11_sensor=Adafruit_DHT.DHT11
  
 # Set GPIO sensor is connected to
@@ -51,14 +52,36 @@ def ConvertVolts(data,places):
     volts = (data * 3.3) / float(1023)
     volts = round(volts,places)
     return volts
+ 
 
+ 
 # Define sensor channels
 light_channel = 0
 moisture_channel  = 1
 waterlevel_channel  = 2
 
 # Define delay between readings
-delay = 2
+delay = 20
+ 
+ # create or open file for saving data (Need to do testing)
+def SaveToFile(filename,data):
+    
+    # get current date and time
+    current = strftime("%a, %d %b %Y %H:%M:%S", gmtime())
+
+    # create or open file for saving data
+    filename = filename + ".csv"
+    if os.path.exists(filename):
+        print( filename + " exists, opening now ... ...")
+        append_write = 'a' 
+    else:
+        print("file does exist, created a new one")
+        append_write = 'w'
+
+    with open(filename,append_write) as sensor_data:
+        lists = [current, data]
+        writer = csv.writer(sensor_data)
+        writer.writerow(lists)
  
 while True:
  
@@ -76,6 +99,7 @@ while True:
     # Print out results
     print ("--------------------------------------------")
     print("Light: {} ({}V)".format(light_level,light_volts))
+    SaveToFile("light",light_level)
   
     percent = 100 - int(round(moisture_level/10.24))
     print("Moisture: {} ({}V)  Percentage: {}%".format(moisture_level,moisture_volts,percent))
@@ -92,47 +116,57 @@ while True:
         print('Fahrenheit = {0:0.1f}*F  '.format(fahrenheit))
     else:
         print('Failed to get reading. Try again!')
+    SaveToFile("temperature",temperature)
+    SaveToFile("humidity",humidity)
     
+    waterlevel = ""
     #print("Water Level: {} ({}V)".format(water_level,water_volts))
     if GPIO.input(WaterLevel_gpio) == False and water_level > 600:
         print("Water Level: Almost empty")
-        
+        waterlevel = "EMPTY"
         #opening the solenoid valve
         GPIO.output(Solenoid_valve,  GPIO.LOW)
         if GPIO.input(Solenoid_valve) == False:
             print("***FILLING UP THE TANK***")
-            
     elif water_level < 500:
         #closing the solenoid valve
         GPIO.output(Solenoid_valve,  GPIO.HIGH)
         print("Water Level: Tank is full")
-        
+        waterlevel = "FULL"
     elif GPIO.input(WaterLevel_gpio) == True and GPIO.input(Solenoid_valve) == False:
         print("Water Level: Filling up the tank until full")
-        
+        waterlevel = "FILLING"
     elif GPIO.input(WaterLevel_gpio) == True:
-        print("Water Level: Enough water")
+        print("Water Level: Enough Water")
+        waterlevel = "ENOUGH"
+    SaveToFile("water_level",waterlevel)
         
-    if light_level > 150:
+    if light_level > 20:
         GPIO.output(Light_bulb, GPIO.LOW)
         print("Plant Grow Light: TURN ON")
+        SaveToFile("Light_bulb","ON") #Need further coding: check if the last status is same, no save status require
     else:
         GPIO.output(Light_bulb, GPIO.HIGH)
         print("Plant Grow Light: TURN OFF")
+        SaveToFile("Light_bulb","OFF")
     
-    if temperature > 30:
+    if temperature > 28:
         GPIO.output(Ventilation_fan, GPIO.LOW)
         print("Ventilation Fan: TURN ON")
+        SaveToFile("Ventilation_fan","ON")
     else:
         GPIO.output(Ventilation_fan, GPIO.HIGH)
         print("Ventilation Fan: TURN OFF")
+        SaveToFile("Ventilation_fan","OFF")
     
     if percent > 50:
         GPIO.output(Water_pump, GPIO.LOW)
         print("Water Pump: TURN ON")
+        SaveToFile("water_pump","ON")
     else:
         GPIO.output(Water_pump, GPIO.HIGH)
         print("Water Pump: TURN OFF")
+        SaveToFile("water_pump","OFF")
         
-# Wait before repeating loop
-time.sleep(delay)
+  # Wait before repeating loop
+    time.sleep(delay)

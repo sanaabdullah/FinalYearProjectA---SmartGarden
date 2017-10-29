@@ -16,6 +16,7 @@
 
     <!-- MetisMenu CSS -->
     <link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+    
     <!-- Chart.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
@@ -29,16 +30,18 @@
     <!-- Custom Fonts -->
     <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
+    <!--[if lt IE 9]-->
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <!--[endif]-->
 
 </head>
 
 <body>
+
     <div id="wrapper">
 
         <!-- Navigation -->
@@ -185,6 +188,7 @@
                         </li>
                         <li>
                             <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                            
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-wrench fa-fw"></i> Settings<span class="fa arrow"></span></a>
@@ -212,6 +216,29 @@
             <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header">Dashboard</h1>
+
+                    <?php
+						function getData($sensor)
+						{
+							$row = 1;
+							$filename = "../../" . $sensor . ".csv";
+							// echo "The file name is $filename";
+							
+							if (($handle = fopen($filename, "r")) !== FALSE) 
+							{
+								while (($data = fgetcsv($handle, 1000, ",")) !== FALSE)
+								{
+									$num = count($data);
+									$row++;
+									// $dates = $data[0] ;
+									$datas = $data[1] ;
+								}
+								fclose($handle);
+								return $datas;
+							}
+						}
+                    ?>
+                    
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -229,7 +256,11 @@
                         <a href="#">
                             <div class="panel-footer">
                                 <div style="max-width: 150px; margin: auto; padding: 0px; text-align: center;">
-                                    <h1>25.8 &#8451; </h1>
+                                    <?php
+										$data = getData("temperature");
+										sleep(5);
+										echo "<h1>$data &#8451; </h1>";
+                                    ?>
                                     <h5 style="color: black;">Best: 25&#8451; - 30&#8451;</h5>
                                     <br/>
                                 </div>
@@ -244,19 +275,22 @@
                 </div>
                 
                 <div class="col-lg-3 col-md-6">
-                    <div class="panel panel-red">
+                    <div class="panel panel-green">
                         <div class="panel-heading">
                             <div class="row">
                                 <div style="text-align: center;">
-                                    <h4>Soil Moisture</h4>
+                                    <h4>Water Level</h4>
                                 </div>
                             </div>
                         </div>
                         <a href="#">
                             <div class="panel-footer">
                                 <div style="max-width: 150px; margin: auto; padding: 0px; text-align: center;">
-                                    <h1>40 % </h1>
-                                    <h5 style="color: black;">Normal: 30% - 35%</h5>
+                                    <?php
+										$data = getData("water_level");
+										echo "<h1>$data</h1>";
+                                    ?>
+                                    <h5 style="color: black;">Enough water</h5>
                                     <br/>
                                 </div>
                                 <div class="panel-footer">
@@ -270,19 +304,27 @@
                 </div>
                 
                 <div class="col-lg-3 col-md-6">
-                    <div class="panel panel-red">
+                    <div class="panel panel-green">
                         <div class="panel-heading">
                             <div class="row">
                                 <div style="text-align: center;">
-                                    <h4>Water Level</h4>
+                                    <h4>Humidity</h4>
                                 </div>
                             </div>
                         </div>
                         <a href="#">
                             <div class="panel-footer">
                                 <div style="max-width: 150px; margin: auto; padding: 0px; text-align: center;">
-                                    <h1>38 Litre</h1>
-                                    <h5 style="color: black;">Best: 30L - 35L </h5>
+                                    <?php
+                                   do
+                                    {
+                                        $data = getData("humidity");
+										echo "<h1>$data %</h1>";
+                                    }
+                                    while(sleep(1))
+										
+                                    ?>
+                                    <h5 style="color: black;">Best: 20% - 35% </h5>
                                     <br/>
                                 </div>
                                 <div class="panel-footer">
@@ -294,6 +336,36 @@
                         </a>
                     </div>
                 </div>
+                <canvas id="mycanvas" width="256" height="256"></canvas>
+                <script>
+                    $(document).ready(function(){
+                        var ctx = $("#mycanvas").get(0).getContext("2d");
+                        //pie chart data
+                        //sum of values = 360
+                        var data = [
+                            {
+                                value: 270,
+                                color: "cornflowerblue",
+                                highlight: "lightskyblue",
+                                label: "Corn Flower Blue"
+                            },
+                            {
+                                value: 50,
+                                color: "lightgreen",
+                                highlight: "yellowgreen",
+                                label: "Lightgreen"
+                            },
+                            {
+                                value: 40,
+                                color: "orange",
+                                highlight: "darkorange",
+                                label: "Orange"
+                            }
+                        ];
+                        //draw
+                        var piechart = new Chart(ctx).Pie(data);
+                    });
+                </script>
                 
                 <div class="col-lg-3 col-md-6">
                     <div class="panel panel-green">
@@ -334,7 +406,10 @@
                             <div class="panel-footer">
                                 <div style="max-width: 150px; margin: auto; padding: 0px; text-align: center;">
                                     <img src="lightbulb.png" height="75"/>
-                                    <h4>ON</h4>
+                                    <?php
+										$data = getData("Light_bulb");
+										echo "<h4>$data</h4>";
+                                    ?>
                                 </div>
                                 <div class="panel-footer">
                                     <span class="pull-left">View History</span>
@@ -351,7 +426,10 @@
                         <div class="panel-heading">
                             <div class="row">
                                 <div style="text-align: center;">
-                                    <h4>Ventilation Fan</h4>
+                                    <?php
+										$data = getData("Ventilation_fan");
+										echo "<h4>$data</h4>";
+                                    ?>
                                 </div>
                             </div>
                         </div>
@@ -370,21 +448,25 @@
                         </a>
                     </div>
                 </div>
+                
+                
                 <div class="col-lg-3 col-md-6">
                     <div class="panel panel-green">
                         <div class="panel-heading">
                             <div class="row">
                                 <div style="text-align: center;">
-                                    <h4>Humidity</h4>
+                                    <h4>Water Pump</h4>
                                 </div>
                             </div>
                         </div>
                         <a href="#">
                             <div class="panel-footer">
                                 <div style="max-width: 150px; margin: auto; padding: 0px; text-align: center;">
-                                    <h1>26%</h1>
-                                    <h5 style="color: black;">Best: 20% - 35% </h5>
-                                    <br/>
+                                    <img src="water.png" height="75"/>
+                                    <?php
+										$data = getData("water_pump");
+										echo "<h4>$data</h4>";
+                                    ?>
                                 </div>
                                 <div class="panel-footer">
                                     <span class="pull-left">View History</span>
