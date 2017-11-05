@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SmartGarden 1.0</title>
+    <title>Welcome to Smart Garden</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="SmartGarden/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -52,6 +52,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
+                    
                 </button>
                 <a class="navbar-brand" href="index.html">Welcome to SmartGarden</a>
             </div>
