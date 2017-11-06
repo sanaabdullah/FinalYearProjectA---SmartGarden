@@ -59,117 +59,11 @@
             <!-- /.navbar-header -->
 
             <ul class="nav navbar-top-links navbar-right">
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-envelope fa-fw"></i> <i class="fa fa-caret-down"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-messages">
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <strong>John Smith</strong>
-                                    <span class="pull-right text-muted">
-                                        <em>Yesterday</em>
-                                    </span>
-                                </div>
-                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <strong>John Smith</strong>
-                                    <span class="pull-right text-muted">
-                                        <em>Yesterday</em>
-                                    </span>
-                                </div>
-                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <strong>John Smith</strong>
-                                    <span class="pull-right text-muted">
-                                        <em>Yesterday</em>
-                                    </span>
-                                </div>
-                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a class="text-center" href="#">
-                                <strong>Read All Messages</strong>
-                                <i class="fa fa-angle-right"></i>
-                            </a>
-                        </li>
-                    </ul>
-                    <!-- /.dropdown-messages -->
-                </li>
-               
-                <!-- /.dropdown -->
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-bell fa-fw"></i> <i class="fa fa-caret-down"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-alerts">
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <i class="fa fa-comment fa-fw"></i> Your soil is too wet
-                                    <span class="pull-right text-muted small">4 minutes ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <i class="fa fa-comment fa-fw"></i> Your soil is too wet
-                                    <span class="pull-right text-muted small">12 minutes ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <i class="fa fa-comment fa-fw"></i> Your soil is too wet
-                                    <span class="pull-right text-muted small">4 minutes ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <i class="fa fa-tasks fa-fw"></i> Light switched on too long time
-                                    <span class="pull-right text-muted small">4 minutes ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <i class="fa fa-tasks fa-fw"></i> Light switched on too long time
-                                    <span class="pull-right text-muted small">4 minutes ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a class="text-center" href="#">
-                                <strong>See All Alerts</strong>
-                                <i class="fa fa-angle-right"></i>
-                            </a>
-                        </li>
-                    </ul>
-                    <!-- /.dropdown-alerts -->
-                </li>
+                
+       <button type="button" class="btn btn-default btn-sm" ng-click="logout();">
+          <span class="glyphicon glyphicon-log-out"></span> Log out
+        </button>
+            
             </ul>
             <!-- /.navbar-top-links -->
 
@@ -202,9 +96,6 @@
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
-                        </li>
-                         <li>
-                            <a href="#"><i class="fa fa-files-o fa-fw"></i> About Us </a>
                         </li>
                     </ul>
                 </div>
@@ -376,7 +267,7 @@
                         <a href="#">
                             <div class="panel-footer">
                                 <div style="max-width: 150px; margin: auto; padding: 0px; text-align: center;">
-                                    <img src="lightbulb.png" height="75"/>
+                                    <img src="SmartGarden/pages/lightbulb.png" height="75"/>
                                     <?php
 										$data = getData("Light_bulb");
 										echo "<h4>$data</h4>";
@@ -397,18 +288,18 @@
                         <div class="panel-heading">
                             <div class="row">
                                 <div style="text-align: center;">
-                                    <?php
-										$data = getData("Ventilation_fan");
-										echo "<h4>$data</h4>";
-                                    ?>
+                                    <h4>Ventilation Fan</h4>
                                 </div>
                             </div>
                         </div>
                         <a href="#">
                             <div class="panel-footer">
                                 <div style="max-width: 150px; margin: auto; padding: 0px; text-align: center;">
-                                    <img src="fan.png" height="75"/>
-                                    <h4>OFF</h4>
+                                    <img src="SmartGarden/pages/fan.png" height="75"/>
+                                     <?php
+										$data = getData("Ventilation_fan");
+										echo "<h4>$data</h4>";
+                                    ?>
                                 </div>
                                 <div class="panel-footer">
                                     <span class="pull-left">View History</span>
@@ -433,7 +324,7 @@
                         <a href="#">
                             <div class="panel-footer">
                                 <div style="max-width: 150px; margin: auto; padding: 0px; text-align: center;">
-                                    <img src="water.png" height="75"/>
+                                    <img src="SmartGarden/pages/water.png" height="75"/>
                                     <?php
 										$data = getData("water_pump");
 										echo "<h4>$data</h4>";
@@ -461,7 +352,7 @@
                         <a href="#">
                             <div class="panel-footer">
                                 <div style="max-width: 150px; margin: auto; padding: 0px; text-align: center;">
-                                    <img src="rain.png" height="75"/>
+                                    <img src="SmartGarden/pages/rain.png" height="75"/>
                                     <h4>Raining</h4>
                                 </div>
                                 <div class="panel-footer">
@@ -729,7 +620,7 @@
                 <div class="col-lg-4">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <i class="fa fa-bell fa-fw"></i> Hisrtory of Events
+                            <i class="fa fa-bell fa-fw"></i> History of Events
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">

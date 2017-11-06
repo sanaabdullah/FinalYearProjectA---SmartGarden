@@ -50,6 +50,9 @@
             <li class="nav-item px-lg-4">
               <a class="nav-link text-uppercase text-expanded" href="login.php">Login/Register</a>
             </li>
+            <li class="nav-item px-lg-4">
+              <a class="nav-link text-uppercase text-expanded" href="">Shop Now</a>
+            </li>
           </ul>
         </div>
       </div>
@@ -95,7 +98,7 @@
           <strong>Form</strong>
         </h2>
         <hr class="divider">
-        <form>
+       <form id=myform>
           <div class="row">
             <div class="form-group col-lg-4">
               <label class="text-heading">Name</label>
@@ -115,13 +118,22 @@
               <textarea class="form-control" rows="6"></textarea>
             </div>
             <div class="form-group col-lg-12">
-              <button type="submit" class="btn btn-secondary">Submit</button>
-            </div>
-          </div>
+              <button type="submit" class="btn btn-secondary" onClick="alert('Your form has been submitted!'); return true">Submit</button>
+            </div>     
+     </div>
         </form>
       </div>
 
     </div>
+      
+      <script type="text/javascript">
+     function clearField() {
+   if(document.getElementById) {
+      document.chatform.reset();
+    }
+   }
+     </script>
+    
     <!-- /.container -->
 
     <footer class="bg-faded text-center py-5">
