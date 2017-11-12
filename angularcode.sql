@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 12, 2017 at 10:13 PM
+-- Generation Time: Nov 12, 2017 at 11:00 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -97,14 +97,14 @@ CREATE TABLE `products` (
 
 INSERT INTO `products` (`ID`, `name`, `quantity`, `price`, `description`, `image_location`) VALUES
 (1, 'Raspberry Pi 3', 50, '189.00', 'Raspberry Pi 3 Model B with 1GB Ram (Support Wifi and Bluetooth 4.1)  ', 'img/product1.jpg'),
-(2, 'Raspberry Pi 3', 50, '189.00', 'Raspberry Pi 3 Model B with 1GB Ram (Support Wifi and Bluetooth 4.1)  ', 'img/product1.jpg'),
-(3, 'Raspberry Pi 3', 50, '189.00', 'Raspberry Pi 3 Model B with 1GB Ram (Support Wifi and Bluetooth 4.1)  ', 'img/product1.jpg'),
-(4, 'Raspberry Pi 3', 50, '189.00', 'Raspberry Pi 3 Model B with 1GB Ram (Support Wifi and Bluetooth 4.1)  ', 'img/product1.jpg'),
-(5, 'Raspberry Pi 3', 50, '189.00', 'Raspberry Pi 3 Model B with 1GB Ram (Support Wifi and Bluetooth 4.1)  ', 'img/product1.jpg'),
-(6, 'Raspberry Pi 3', 50, '189.00', 'Raspberry Pi 3 Model B with 1GB Ram (Support Wifi and Bluetooth 4.1)  ', 'img/product1.jpg'),
-(7, 'Raspberry Pi 3', 50, '189.00', 'Raspberry Pi 3 Model B with 1GB Ram (Support Wifi and Bluetooth 4.1)  ', 'img/product1.jpg'),
-(8, 'Raspberry Pi 3', 50, '189.00', 'Raspberry Pi 3 Model B with 1GB Ram (Support Wifi and Bluetooth 4.1)  ', 'img/product1.jpg'),
-(9, 'Raspberry Pi 3', 50, '189.00', 'Raspberry Pi 3 Model B with 1GB Ram (Support Wifi and Bluetooth 4.1)  ', 'img/product1.jpg');
+(2, 'MCP30008', 50, '21.00', '10-bit Analog-to-Digital (A/D) converters\r\nNumber of Pins: 16 DIP  ', 'img/product2.jpg'),
+(3, 'Digital Temperature & Relative Humidity Sensor', 50, '28.00', 'Digital Temperature & Relative Humidity Sensor DHT11 Module  ', 'img/product3.jpg'),
+(4, 'Led Plant Grow Light Red', 50, '17.00', 'LEDs Hydroponic Lamp Bulb For Flower Plants and Aquarium Power:3W  \r\n Be the first to review this product', 'img/product4.jpg'),
+(5, 'Soil Moisture Sensor', 50, '14.00', 'Ishowmall Soil Hygrometer Detection Module Soil Moisture Sensor For Arduino Smart car   ', 'img/product5.jpg'),
+(6, 'Cooler Master MasterFan', 50, '68.00', 'Cooler Master MasterFan Pro 140 Air Flow Cooling Fan (MFY-F4NN-08NMK)  ', 'img/product6.jpg'),
+(7, '12V Moisture Drops Control Module Moisture Sensor', 50, '18.00', 'Relay load capacity: 250 V 10A (AC) 30 V 10A (DC)', 'img/product7.jpg'),
+(8, 'Connector Wire Breadboard Jumper Cable', 50, '15.00', 'Male/Male For Arduino 20cm 2.54mm 40 PCS ', 'img/product8.jpg'),
+(9, '3-in-1 8-CH 24V Relay Module w/ Optocoupler', 50, '45.00', 'Adopt patch optical coupling isolation, strong drive capability; \r\nReliable performance, trigger current: 5mA; \r\nWorking voltage: 24V; ', 'img/product9.jpg');
 
 --
 -- Indexes for dumped tables

@@ -150,7 +150,6 @@
                                 <div style="max-width: 150px; margin: auto; padding: 0px; text-align: center;">
                                     <?php
 										$data = getData("temperature");
-										sleep(5);
 										echo "<h1>$data &#8451; </h1>";
                                     ?>
                                     <h5 style="color: black;">Best: 25&#8451; - 30&#8451;</h5>
@@ -208,12 +207,8 @@
                             <div class="panel-footer">
                                 <div style="max-width: 150px; margin: auto; padding: 0px; text-align: center;">
                                     <?php
-                                   do
-                                    {
                                         $data = getData("humidity");
 										echo "<h1>$data %</h1>";
-                                    }
-                                    while(sleep(1))
 										
                                     ?>
                                     <h5 style="color: black;">Best: 20% - 35% </h5>
