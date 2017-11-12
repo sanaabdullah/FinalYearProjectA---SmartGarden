@@ -48,7 +48,7 @@
               <a class="nav-link text-uppercase text-expanded" href="contact.php">Contact Us</a>
             </li>
             <li class="nav-item px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="login.php">Login/Register</a>
+              <a class="nav-link text-uppercase text-expanded" href="authentication/index.php">Login/Register</a>
             </li>
             <li class="nav-item px-lg-4">
               <a class="nav-link text-uppercase text-expanded" href=" ">Shop Now</a>
