@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,7 +22,51 @@
 
     <!-- Custom styles for this template -->
     <link href="css/business-casual.css" rel="stylesheet">
+		<style>
+			.jumbotron
+			{
+				text-align: center;
+				height: 300px;
+			}
+			p.title 
+			{
+				font-size: 50px;
+				padding-top: 150px;
+				color: white;
+			}
+			nav.ul {
+				list-style-type: none;
+				margin: 0;
+				padding: 0;
+				width: 200px;
+				background-color: #f1f1f1;
+				border: 1px solid #555;
+			}
 
+			li a {
+				display: block;
+				color: #000;
+				padding: 8px 16px;
+				text-decoration: none;
+			}
+
+			li {
+				text-align: center;
+				border-bottom: 1px solid #555;
+			}
+
+			
+
+			li a.active {
+				background-color: dimgray;
+				color: white;
+			}
+
+			li a:hover:not(.active) {
+				background-color: #555;
+				color: white;
+			}
+		</style>
   </head>
 
   <body>
@@ -61,79 +108,38 @@
       </div>
     </nav>
 
-    <div class="container">
+    <div>
+        <div class="container">
+        	<div class="row">
+        		<div class="col-md-9 col-xs-9" style="background-color: #eeeeee; margin: auto; padding: 50px; margin-top: 20px;">
+					<div class="row" style="padding-top: 50px;">
+						<?php
 
-      <div class=" bg-faded p-4 my-4">
-        <!-- Image Carousel -->
-        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-          <ol class="carousel-indicators">
-            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-          </ol>
-          <div class="carousel-inner" role="listbox">
-            <div class="carousel-item active">
-              <img class="d-block img-fluid w-100" src="img/slide-1.jpg" alt="">
-              <div class="carousel-caption d-none d-md-block">
-                <h3 class="text-shadow">First Slide</h3>
-                <p class="text-shadow">This is the caption for the first slide.</p>
-              </div>
-            </div>
-            <div class="carousel-item">
-              <img class="d-block img-fluid w-100" src="img/slide-2.jpg" alt="">
-              <div class="carousel-caption d-none d-md-block">
-                <h3 class="text-shadow">Second Slide</h3>
-                <p class="text-shadow">This is the caption for the second slide.</p>
-              </div>
-            </div>
-            <div class="carousel-item">
-              <img class="d-block img-fluid w-100" src="img/slide-3.jpg" alt="">
-              <div class="carousel-caption d-none d-md-block">
-                <h3 class="text-shadow">Third Slide</h3>
-                <p class="text-shadow">This is the caption for the third slide.</p>
-              </div>
-            </div>
-          </div>
-          <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-          </a>
-          <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-          </a>
+							$connection = mysql_connect("localhost", "root", "");
+							$db=mysql_select_db("angularcode",$connection);
+							$query=mysql_query("SELECT * FROM products", $connection);
+							
+							if (!$query) {
+								die("Error: ".mysql_error());
+							}
+
+							while ($row = mysql_fetch_assoc($query)) {
+								$image = $row["image_location"];
+
+								echo 
+									"<div class='col-md-4 col-xs-4'>
+										<a href='product-zoom-in.php?id=". $row['ID']."'>
+										<img src='$image' alt='img' ' height='250'></a>
+										<p style='padding-top: 10px; font-size: small;'>". $row["name"]. "</p>
+										<p style='text-align: right; font-size: medium;'>RM". $row["price"]. "</p>
+									</div>";
+							}
+						?>
+					</div>
+				</div>
+			</div>
         </div>
-        <!-- Welcome Message -->
-        <div class="text-center mt-4">
-          <div class="text-heading text-muted text-lg">Welcome To</div>
-          <h1 class="my-2">Smart Garden</h1>
-          <div class="text-heading text-muted text-lg">By
-            <strong>Sana, Nurul & Wendy</strong>
-          </div>
-        </div>
-      </div>
-
-      <div class="bg-faded p-4 my-4">
-        <hr class="divider">
-        <h2 class="text-center text-lg text-uppercase my-0">Build a website
-          <strong>worth visitng</strong>
-        </h2>
-        <hr class="divider">
-        <img class="img-fluid float-left mr-4 d-none d-lg-block" src="img/intro-pic.jpg" alt="">
-        <p>Sample 1</p>
-        <p>Sample 2</p>
-        <p>Sample 3</p>
-      </div>
-
-      <div class="bg-faded p-4 my-4">
-        <hr class="divider">
-        <h2 class="text-center text-lg text-uppercase my-0">Beautiful boxes to
-          <strong>showcase your content</strong>
-        </h2>
-        <hr class="divider">
-        <p>Sample 1</p>
-        <p>Sample 2</p>
-      </div>
+      
 
     </div>
     <!-- /.container -->
