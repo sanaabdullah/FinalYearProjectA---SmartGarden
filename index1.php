@@ -51,8 +51,11 @@
               <a class="nav-link text-uppercase text-expanded" href="authentication/index.php">Login/Register</a>
             </li>
             <li class="nav-item px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href=" ">Shop Now</a>
+              <a class="nav-link text-uppercase text-expanded" href="product.php">Shop Now</a>
             </li>
+                            <li>
+                  <a href='cart_item.php'><span class='glyphicon glyphicon-shopping-cart'></span></a>
+              </li>
           </ul>
         </div>
       </div>
