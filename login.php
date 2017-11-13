@@ -5,7 +5,7 @@
     <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width,initial-scale=1">
-          <title>Login</title>
+          <title>Login In/Register</title>
           <!-- Bootstrap -->
           <link href="css/bootstrap.min.css" rel="stylesheet">
             <link href="css/custom.css" rel="stylesheet">
@@ -22,7 +22,7 @@
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
-    </head>
+              </head>
 
  <body ng-cloak="">
     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -30,17 +30,28 @@
         <div class="row">
           <div class="navbar-header col-md-8">
             <button type="button" class="navbar-toggle" toggle="collapse" target=".navbar-ex1-collapse">
+                
               <span class="sr-only">Toggle navigation</span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
+            <a class="navbar-brand" href="#">Welcome to Smart Garden</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li><a href="index1.php">Home</a></li>
+        <li><a href="about.php">About</a></li>
+        <li><a href="contact.php">Contact Us</a></li> 
+        <li><a href="login.php">Login/Register</a></li> 
+      </ul>
+   
+    </div>
+  </div>
           </div>
         </div>
-      </div>
-    </div>
-    <div >
-      <div class="container" style="margin-top:20px;">
+    <div>
+      <div class="container" style="margin-top:20px;"/>
 
         <div data-ng-view="" id="ng-view" class="slide-animation"></div>
 

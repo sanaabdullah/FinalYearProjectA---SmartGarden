@@ -1,36 +1,24 @@
 {
-  "title": "Business Casual",
-  "name": "startbootstrap-business-casual",
-  "version": "4.0.0-beta.2",
-  "description": "A casual HTML website theme for businesses built with Bootstrap",
-  "keywords": [
-    "css",
-    "sass",
-    "html",
-    "responsive",
-    "theme",
-    "template"
-  ],
-  "homepage": "https://startbootstrap.com/template-overviews/business-casual",
-  "bugs": {
-    "url": "https://github.com/BlackrockDigital/startbootstrap-business-casual/issues",
-    "email": "feedback@startbootstrap.com"
-  },
-  "license": "MIT",
+  "name": "startbootstrap-sb-admin-2",
+  "title": "SB Admin 2",
+  "version": "3.3.7+1",
+  "homepage": "http://startbootstrap.com/template-overviews/sb-admin-2",
   "author": "Start Bootstrap",
-  "contributors": [
-    "David Miller (http://davidmiller.io/)"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/BlackrockDigital/startbootstrap-business-casual.git"
-  },
-  "dependencies": {
-    "bootstrap": "^4.0.0-beta.2",
-    "jquery": "^3.2.1"
+  "license": {
+    "type": "MIT",
+    "url": "https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE"
   },
   "devDependencies": {
-    "browser-sync": "2.18.13",
-    "gulp": "^3.9.1"
+    "browser-sync": "^2.13.0",
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^2.0.10",
+    "gulp-header": "^1.8.7",
+    "gulp-less": "^3.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^1.5.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/BlackrockDigital/startbootstrap-sb-admin-2.git"
   }
 }

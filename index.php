@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Welcome to Smart Garden</title>
+    
 
     <!-- Bootstrap Core CSS -->
     <link href="SmartGarden/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -54,10 +54,35 @@
                     <span class="icon-bar"></span>
                     
                 </button>
-                <a class="navbar-brand" href="index.html">Welcome to SmartGarden</a>
+               
             </div>
             <!-- /.navbar-header -->
-
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="row">
+          <div class="navbar-header col-md-8">
+            <button type="button" class="navbar-toggle" toggle="collapse" target=".navbar-ex1-collapse">
+                
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Welcome to Smart Garden</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li><a href="index1.php">Home</a></li>
+        <li><a href="about.php">About</a></li>
+        <li><a href="contact.php">Contact Us</a></li> 
+        <li><a href="login.php">Login/Register</a></li> 
+      </ul>
+   
+    </div>
+  </div>
+          </div>
+        </div>
+            
             <ul class="nav navbar-top-links navbar-right">
                 
        <button type="button" class="btn btn-default btn-sm" ng-click="logout();">
@@ -69,6 +94,8 @@
 
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
+                    
+                    
                     <ul class="nav" id="side-menu">
                         <li class="sidebar-search">
                             <div class="input-group custom-search-form">
@@ -82,7 +109,7 @@
                             <!-- /input-group -->
                         </li>
                         <li>
-                            <a href="index.php"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                            <a href="../SmartGarden/index.php"><i class="fa fa-dashboard fa-fw"></i> Dashboard </a>
                             
                         </li>
                         <li>
@@ -150,6 +177,7 @@
                                 <div style="max-width: 150px; margin: auto; padding: 0px; text-align: center;">
                                     <?php
 										$data = getData("temperature");
+										sleep(5);
 										echo "<h1>$data &#8451; </h1>";
                                     ?>
                                     <h5 style="color: black;">Best: 25&#8451; - 30&#8451;</h5>
@@ -207,8 +235,12 @@
                             <div class="panel-footer">
                                 <div style="max-width: 150px; margin: auto; padding: 0px; text-align: center;">
                                     <?php
+                                   do
+                                    {
                                         $data = getData("humidity");
 										echo "<h1>$data %</h1>";
+                                    }
+                                    while(sleep(1))
 										
                                     ?>
                                     <h5 style="color: black;">Best: 20% - 35% </h5>

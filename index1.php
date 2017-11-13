@@ -48,14 +48,11 @@
               <a class="nav-link text-uppercase text-expanded" href="contact.php">Contact Us</a>
             </li>
             <li class="nav-item px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="authentication/index.php">Login/Register</a>
+              <a class="nav-link text-uppercase text-expanded" href="login.php">Login/Register</a>
             </li>
             <li class="nav-item px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="product.php">Shop Now</a>
+              <a class="nav-link text-uppercase text-expanded" href=" ">Shop Now</a>
             </li>
-                            <li>
-                  <a href='cart_item.php'><span class='glyphicon glyphicon-shopping-cart'></span></a>
-              </li>
           </ul>
         </div>
       </div>
@@ -74,24 +71,15 @@
           <div class="carousel-inner" role="listbox">
             <div class="carousel-item active">
               <img class="d-block img-fluid w-100" src="img/slide-1.jpg" alt="">
-              <div class="carousel-caption d-none d-md-block">
-                <h3 class="text-shadow">First Slide</h3>
-                <p class="text-shadow">This is the caption for the first slide.</p>
-              </div>
+            
             </div>
             <div class="carousel-item">
               <img class="d-block img-fluid w-100" src="img/slide-2.jpg" alt="">
-              <div class="carousel-caption d-none d-md-block">
-                <h3 class="text-shadow">Second Slide</h3>
-                <p class="text-shadow">This is the caption for the second slide.</p>
-              </div>
+             
             </div>
             <div class="carousel-item">
               <img class="d-block img-fluid w-100" src="img/slide-3.jpg" alt="">
-              <div class="carousel-caption d-none d-md-block">
-                <h3 class="text-shadow">Third Slide</h3>
-                <p class="text-shadow">This is the caption for the third slide.</p>
-              </div>
+              
             </div>
           </div>
           <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -115,25 +103,16 @@
 
       <div class="bg-faded p-4 my-4">
         <hr class="divider">
-        <h2 class="text-center text-lg text-uppercase my-0">Build a website
-          <strong>worth visitng</strong>
+        <h2 class="text-center text-lg text-uppercase my-0">Why
+          <strong>Smart Garden?</strong>
         </h2>
         <hr class="divider">
         <img class="img-fluid float-left mr-4 d-none d-lg-block" src="img/intro-pic.jpg" alt="">
-        <p>Sample 1</p>
-        <p>Sample 2</p>
-        <p>Sample 3</p>
+        <p><h4>-> Cost-effective</h4></p>
+        <p><h4>-> Efficient</h4></p>
+        <p><h4>-> Reliable</h4></p>
       </div>
 
-      <div class="bg-faded p-4 my-4">
-        <hr class="divider">
-        <h2 class="text-center text-lg text-uppercase my-0">Beautiful boxes to
-          <strong>showcase your content</strong>
-        </h2>
-        <hr class="divider">
-        <p>Sample 1</p>
-        <p>Sample 2</p>
-      </div>
 
     </div>
     <!-- /.container -->
