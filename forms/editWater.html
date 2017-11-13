@@ -1,0 +1,24 @@
+<!-- Form used for updation of product into database -->
+<form class="form-horizontal alert alert-warning" id="editWaterForm" ng-submit="UpdateWaterInfo(currentWater)" hidden>
+<h3 class="text-center">Update Water Level Details</h3>
+
+	<div class="form-group">
+		<label for="WaterName">Water Level Name:</label>
+		<input type="text" class="form-control" ng-model="currentWater.WaterName" value="{{currentWater.WaterName}}">
+	</div>
+	
+	<div class="form-group">
+		<label for="GPIO">GPIO:</label>
+		<input type="number" min="0" step="1" class="form-control" ng-model="currentWater.GPIO" value="{{currentWater.GPIO}}">
+	</div>
+		
+	<div class="form-group">
+		<label for="Channel">Channel:</label>
+		<input type="number" min="0" step="1" class="form-control" ng-model="currentWater.Channel" value="{{currentWater.Channel}}">
+	</div>
+	
+	<div class="form-group">
+		<button class="btn btn-warning" ng-disabled="WaterList.$invalid" ng-click="updateMsg(currentWater.ItemID)">Update</button>
+	</div>
+</form>
+

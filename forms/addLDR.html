@@ -1,0 +1,20 @@
+<!-- Form used to add new LDR in database -->
+<form class="form-horizontal alert alert-warning" name="LDRList" id="LDRForm" ng-submit="insertLDR(LDRInfo);" hidden>
+<h3 class="text-center">Insert New LDR Into Database</h3>
+	<div class="form-group">
+		<label for="LDRName">LDR Name:</label>
+		<input type="text" name="LDR_name" class="form-control" placeholder="Enter LDR Name" ng-model="LDRInfo.LDRName" value="" autofocus required />
+	</div>
+	<div class="form-group">
+		<p class="text-danger" ng-show="LDRList.LDRName.$invalid && LDRList.LDRName.$dirty">LDR Name field is Empty!</p>
+	</div>
+	
+	<div class="form-group">
+		<label for="Channel">Channel:</label>
+		<input type="number" min="0" step="1" name="Channel" class="form-control" placeholder="Enter Channel" ng-model="LDRInfo.Channel" autofocus required />
+	</div>
+	
+	<div class="form-group">
+		<button class="btn btn-warning" ng-disabled="LDRList.$invalid">Add Into Database</button>
+	</div>
+</form>

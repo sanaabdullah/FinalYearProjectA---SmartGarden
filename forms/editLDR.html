@@ -1,0 +1,19 @@
+<!-- Form used for updation of product into database -->
+<form class="form-horizontal alert alert-warning" id="editLDRForm" ng-submit="UpdateLDRInfo(currentLDR)" hidden>
+<h3 class="text-center">Update LDR Details</h3>
+
+	<div class="form-group">
+		<label for="LDRName">LDR Name:</label>
+		<input type="text" class="form-control" ng-model="currentLDR.LDRName" value="{{currentLDR.LDRName}}">
+	</div>
+	
+	<div class="form-group">
+		<label for="Channel">Channel:</label>
+		<input type="number" min="0" step="1" class="form-control" ng-model="currentLDR.Channel" value="{{currentLDR.Channel}}">
+	</div>
+		
+	<div class="form-group">
+		<button class="btn btn-warning" ng-disabled="LDRList.$invalid" ng-click="updateMsg(currentLDR.ItemID)">Update</button>
+	</div>
+</form>
+

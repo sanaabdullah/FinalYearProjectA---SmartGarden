@@ -1,0 +1,20 @@
+<!-- Form used to add new Light in database -->
+<form class="form-horizontal alert alert-warning" name="LightList" id="LightForm" ng-submit="insertLight(LightInfo);" hidden>
+<h3 class="text-center">Insert New Light Into Database</h3>
+	<div class="form-group">
+		<label for="LightName">Light Name:</label>
+		<input type="text" name="Light_name" class="form-control" placeholder="Enter Light Name" ng-model="LightInfo.LightName" value="" autofocus required />
+	</div>
+	<div class="form-group">
+		<p class="text-danger" ng-show="LightList.LightName.$invalid && LightList.LightName.$dirty">Light Name field is Empty!</p>
+	</div>
+	
+	<div class="form-group">
+		<label for="GPIO">GPIO:</label>
+		<input type="number" min="0" step="1" name="GPIO" class="form-control" placeholder="Enter GPIO" ng-model="LightInfo.GPIO" autofocus required />
+	</div>
+	
+	<div class="form-group">
+		<button class="btn btn-warning" ng-disabled="LightList.$invalid">Add Into Database</button>
+	</div>
+</form>

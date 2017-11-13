@@ -1,0 +1,19 @@
+<!-- Form used for updation of product into database -->
+<form class="form-horizontal alert alert-warning" id="editPumpForm" ng-submit="UpdatePumpInfo(currentPump)" hidden>
+<h3 class="text-center">Update Pump Details</h3>
+
+	<div class="form-group">
+		<label for="PumpName">Pump Name:</label>
+		<input type="text" class="form-control" ng-model="currentPump.PumpName" value="{{currentPump.PumpName}}">
+	</div>
+	
+	<div class="form-group">
+		<label for="GPIO">GPIO:</label>
+		<input type="number" min="0" step="1" class="form-control" ng-model="currentPump.GPIO" value="{{currentPump.GPIO}}">
+	</div>
+		
+	<div class="form-group">
+		<button class="btn btn-warning" ng-disabled="PumpList.$invalid" ng-click="updateMsg(currentPump.ItemID)">Update</button>
+	</div>
+</form>
+
