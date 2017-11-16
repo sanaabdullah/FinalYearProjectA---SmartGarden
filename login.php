@@ -36,7 +36,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Welcome to Smart Garden</a>
+           
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
@@ -44,6 +44,7 @@
         <li><a href="about.php">About</a></li>
         <li><a href="contact.php">Contact Us</a></li> 
         <li><a href="login.php">Login/Register</a></li> 
+        <li><a href="product.php">Shop Now</a></li> 
       </ul>
    
     </div>

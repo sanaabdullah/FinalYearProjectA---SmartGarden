@@ -51,7 +51,7 @@
               <a class="nav-link text-uppercase text-expanded" href="login.php">Login/Register</a>
             </li>
             <li class="nav-item px-lg-4">
-                <a class="nav-link text-uppercase text-expanded" href="">Shop Now</a>
+                <a class="nav-link text-uppercase text-expanded" href="product.php">Shop Now</a>
             </li>
           </ul>
         </div>
@@ -68,9 +68,11 @@
         <hr class="divider">
         <div class="row">
           <div class="col-lg-6">
+              <br/>
             <img class="img-fluid mb-4 mb-lg-0" src="img/8.jpg" alt="">
           </div>
           <div class="col-lg-6">
+        <br/>
         <p>The recommended Smart Garden system automatically manages and monitors maintenance schedules for different kinds of plants. The system enables on spot and on the go (Android Mobile Application with Wi-Fi) monitoring strategy with the use of latest up-to- date technology which will improve the efficiency and accuracy of the overall system in terms of information and data gathered. Some of the ways that this system achieves its desired results are: </p>
         <p>
            1- Sensing and displaying the water level from the source. <br/>

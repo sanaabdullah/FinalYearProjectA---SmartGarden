@@ -57,31 +57,10 @@
                
             </div>
             <!-- /.navbar-header -->
-<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-      <div class="container">
-        <div class="row">
-          <div class="navbar-header col-md-8">
-            <button type="button" class="navbar-toggle" toggle="collapse" target=".navbar-ex1-collapse">
-                
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">Welcome to Smart Garden</a>
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
-        <li><a href="index1.php">Home</a></li>
-        <li><a href="about.php">About</a></li>
-        <li><a href="contact.php">Contact Us</a></li> 
-        <li><a href="login.php">Login/Register</a></li> 
-      </ul>
-   
-    </div>
-  </div>
-          </div>
-        </div>
+
+
+      
+     
             
             <ul class="nav navbar-top-links navbar-right">
                 
@@ -123,6 +102,10 @@
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
+                        </li>
+                          <li>
+                            <a href="temp.php"><i class="fa fa-dashboard fa-fw"></i> Setup</a>
+                            
                         </li>
                     </ul>
                 </div>

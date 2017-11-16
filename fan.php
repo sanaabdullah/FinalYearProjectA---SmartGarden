@@ -69,7 +69,7 @@
                     <span class="icon-bar"></span>
                     
                 </button>
-                <a class="navbar-brand" href="index.html">Welcome to SmartGarden</a>
+                <a class="navbar-brand" href="index.php">Welcome to SmartGarden</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -81,7 +81,33 @@
             
             </ul>
             <!-- /.navbar-top-links -->
-
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="row">
+          <div class="navbar-header col-md-8">
+            <button type="button" class="navbar-toggle" toggle="collapse" target=".navbar-ex1-collapse">
+                
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+           
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li><a href="index1.php">Home</a></li>
+        <li><a href="about.php">About</a></li>
+        <li><a href="contact.php">Contact Us</a></li> 
+        <li><a href="login.php">Login/Register</a></li> 
+        <li><a href="product.php">Shop Now</a></li> 
+      </ul>
+   
+    </div>
+          </div>
+          </div>
+        </div>
+    <div>
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
@@ -97,7 +123,7 @@
                             <!-- /input-group -->
                         </li>
                         <li>
-                            <a href="SmartGarden/pages/index.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                            <a href="index.php"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                             
                         </li>
                         <li>

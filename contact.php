@@ -51,7 +51,7 @@
               <a class="nav-link text-uppercase text-expanded" href="login.php">Login/Register</a>
             </li>
             <li class="nav-item px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="">Shop Now</a>
+              <a class="nav-link text-uppercase text-expanded" href="product.php">Shop Now</a>
             </li>
           </ul>
         </div>
@@ -98,24 +98,28 @@
           <strong>Form</strong>
         </h2>
         <hr class="divider">
-       <form id=myform>
+      <form action="thankyou.php" method="post">
           <div class="row">
             <div class="form-group col-lg-4">
-              <label class="text-heading">Name</label>
-              <input type="text" class="form-control">
+                <br>
+              <label class="text-heading">Name: </label>
+               <input type="text" name="u_name" required><br>
             </div>
             <div class="form-group col-lg-4">
-              <label class="text-heading">Email Address</label>
-              <input type="email" class="form-control">
+                <br>
+              <label class="text-heading">Email Address: </label>
+               <input type="email" name="u_email" required><br>
             </div>
             <div class="form-group col-lg-4">
-              <label class="text-heading">Phone Number</label>
-              <input type="tel" class="form-control">
+                <br>
+              <label class="text-heading">Subject: </label>
+              <input type="text" name="subj" required>
             </div>
             <div class="clearfix"></div>
             <div class="form-group col-lg-12">
-              <label class="text-heading">Message</label>
-              <textarea class="form-control" rows="6"></textarea>
+                <br>
+              <label class="text-heading">Message: </label>
+             <input type="text" name="message" required>
             </div>
             <div class="form-group col-lg-12">
               <button type="submit" class="btn btn-secondary" onClick="alert('Your form has been submitted!'); return true">Submit</button>

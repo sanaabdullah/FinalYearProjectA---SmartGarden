@@ -69,18 +69,29 @@
                     <span class="icon-bar"></span>
                     
                 </button>
-                <a class="navbar-brand" href="index.html">Welcome to SmartGarden</a>
+                  <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li><a href="index1.php">Home</a></li>
+        <li><a href="about.php">About</a></li>
+        <li><a href="contact.php">Contact Us</a></li> 
+        <li><a href="login.php">Login/Register</a></li> 
+        <li><a href="product.php">Shop Now</a></li> 
+      </ul>
+   
+    </div>
+                <a class="navbar-brand" href="index.php">Welcome to SmartGarden</a>
             </div>
             <!-- /.navbar-header -->
 
             <ul class="nav navbar-top-links navbar-right">
                 
-       <button type="button" class="btn btn-default btn-sm" ng-click="logout();">
+       <button type="button" class="btn btn-default btn-sm pull-right" ng-click="logout();">
           <span class="glyphicon glyphicon-log-out"></span> Log out
         </button>
             
             </ul>
             <!-- /.navbar-top-links -->
+
 
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
@@ -104,13 +115,17 @@
                             <a href="#"><i class="fa fa-wrench fa-fw"></i> Settings<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="SmartGarden/pages/manual_settings.html">Manual Settings</a>
+                                    <a href="manual_settings.php">Manual Settings</a>
                                 </li>
                                 <li>
-                                    <a href="SmartGarden/pages/advance_settings.html">Advance Settings</a>
+                                    <a href="advance_settings.php">Advance Settings</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
+                        </li>
+                         <li>
+                            <a href="temp.php"><i class="fa fa-dashboard fa-fw"></i> Setup</a>
+                            
                         </li>
                     </ul>
                 </div>

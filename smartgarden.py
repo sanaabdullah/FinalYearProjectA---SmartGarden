@@ -1,5 +1,6 @@
 #!/usr/bin/python
 import RPi.GPIO as GPIO 
+import spidev
 import time
 import os
 import Adafruit_DHT
@@ -7,29 +8,10 @@ import datetime
 from time import gmtime, strftime
 import csv
 
-# Import SPI library (for hardware SPI) and MCP3008 library.
-import Adafruit_GPIO.SPI as SPI
-import Adafruit_MCP3008
-
-
-
 GPIO.setmode(GPIO.BCM)
-
-# Set sensor type : Options are DHT11,DHT22 or AM2302
-DHT11_sensor = Adafruit_DHT.DHT11
-
-# Software SPI configuration:
-CLK  = 11
-MISO = 9
-MOSI = 10
-CS   = 8
-mcp = Adafruit_MCP3008.MCP3008(clk=CLK, cs=CS, miso=MISO, mosi=MOSI)
-
-# Hardware SPI configuration:
-#SPI_PORT   = 0
-#SPI_DEVICE = 0
-#mcp = Adafruit_MCP3008.MCP3008(spi=SPI.SpiDev(SPI_PORT, SPI_DEVICE))
-
+  # Set sensor type : Options are DHT11,DHT22 or AM2302
+DHT11_sensor=Adafruit_DHT.DHT11
+ 
 # Set GPIO sensor is connected to
 DHT11_gpio = 4
 WaterLevel_gpio = 21
@@ -53,7 +35,16 @@ for pin in relay_pins :
     #setting the GPIO to HIGH or 1 or true
     GPIO.output(pin,  GPIO.HIGH)
 	
-
+# Open SPI bus
+spi = spidev.SpiDev()
+spi.open(0,0)
+ 
+# Function to read SPI data from MCP3008 chip
+# Channel must be an integer 0-7
+def ReadChannel(channel):
+    adc = spi.xfer2([1,(8+channel)<<4,0])
+    data = ((adc[1]&3) << 8) + adc[2]
+    return data
  
 # Function to convert data to voltage level,
 # rounded to specified number of decimal places.
@@ -70,7 +61,7 @@ moisture_channel  = 1
 waterlevel_channel  = 2
 
 # Define delay between readings
-delay = 2
+delay = 20
  
  # create or open file for saving data (Need to do testing)
 def SaveToFile(filename,data):
@@ -81,10 +72,10 @@ def SaveToFile(filename,data):
     # create or open file for saving data
     filename = filename + ".csv"
     if os.path.exists(filename):
-        # print( filename + " exists, opening now ... ...")
+        print( filename + " exists, opening now ... ...")
         append_write = 'a' 
     else:
-        # print("file does exist, created a new one")
+        print("file does exist, created a new one")
         append_write = 'w'
 
     with open(filename,append_write) as sensor_data:
@@ -94,17 +85,15 @@ def SaveToFile(filename,data):
  
 while True:
  
-    # The read_adc function will get the value of the specified channel (0-7).
-    light_level = mcp.read_adc(light_channel)
   # Read the light sensor data
-    
+    light_level = ReadChannel(light_channel)
     light_volts = ConvertVolts(light_level,2)
  
   # Read the soil mositure sensor data
-    moisture_level = mcp.read_adc(moisture_channel)
+    moisture_level = ReadChannel(moisture_channel)
     moisture_volts = ConvertVolts(moisture_level,2)
   
-    water_level = mcp.read_adc(waterlevel_channel)
+    water_level = ReadChannel(waterlevel_channel)
     water_volts = ConvertVolts(water_level,2)
  
     # Print out results
@@ -112,9 +101,8 @@ while True:
     print("Light: {} ({}V)".format(light_level,light_volts))
     SaveToFile("light",light_level)
   
-    moisture_percent = 100 - int(round(moisture_level/10.24))
-    print("Moisture: {} ({}V)  Percentage: {}%".format(moisture_level,moisture_volts,moisture_percent))
-    SaveToFile("moisture",moisture_percent)
+    percent = 100 - int(round(moisture_level/10.24))
+    print("Moisture: {} ({}V)  Percentage: {}%".format(moisture_level,moisture_volts,percent))
 
     # Use read_retry method. This will retry up to 15 times to
     # get a sensor reading (waiting 2 seconds between each retry).
@@ -171,7 +159,7 @@ while True:
         print("Ventilation Fan: TURN OFF")
         SaveToFile("Ventilation_fan","OFF")
     
-    if moisture_percent < 50:
+    if percent > 50:
         GPIO.output(Water_pump, GPIO.LOW)
         print("Water Pump: TURN ON")
         SaveToFile("water_pump","ON")
@@ -182,6 +170,3 @@ while True:
         
   # Wait before repeating loop
     time.sleep(delay)
-    
-    
-##    os.system('clear')
