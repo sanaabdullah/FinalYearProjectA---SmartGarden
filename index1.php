@@ -11,7 +11,7 @@
     <title>Welcome to Smart Garden</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="SmartGarden/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom fonts for this template -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
@@ -124,8 +124,8 @@
     </footer>
 
     <!-- Bootstrap core JavaScript -->
-    <script src="SmartGarden/vendor/jquery/jquery.min.js"></script>
-    <script src="SmartGarden/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   </body>
 
