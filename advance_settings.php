@@ -118,24 +118,15 @@
                             Advance Settings for SmartGarden
                         </div>
                         <div class="panel-body">
+                            <form action="#">
                             <div class="row">
                                 <div class="col-lg-6">
                                     <form role="form">
                                         <h2>WATER TANK</h2>
                                         <div class="form-group" style="margin-right: 50%;">
-                                            <label data-toggle="tooltip" data-placement="right" title="Set the default water level range of the water bucket ">UNIT</label>
-                                            <div class="form-group input-group">
-                                                <select class="form-control">
-                                                    <option>PERCENTAGE (%)</option>
-                                                    <option>CUBIC METER (M3)</option>
-                                                    <option selected>LITRE (L)</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="form-group" style="margin-right: 50%;">
                                             <label data-toggle="tooltip" data-placement="right" title="Set the default temperature range for the green house">MINIMUM</label>
                                             <div class="form-group input-group">
-                                                <input type="text" class="form-control" value="20.0">
+                                                <input type="text" class="form-control" name="water" value="20.0">
                                                 <span class="input-group-addon">LITRE </span>
                                             </div>
                                         </div>
@@ -295,6 +286,7 @@
                                 <!-- /.col-lg-6 (nested) -->
                             </div>
                             <!-- /.row (nested) -->
+                            </form>
                         </div>
                         <!-- /.panel-body -->
                     </div>
