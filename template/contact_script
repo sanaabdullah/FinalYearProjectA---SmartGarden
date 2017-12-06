@@ -1,0 +1,13 @@
+CREATE DATABASE IF NOT EXISTS angularcode;
+
+USE angularcode;
+
+//Then create table
+CREATE TABLE 'contact' (
+'ID' int(11) NOT NULL AUTO_INCREMENT,
+'Name' varchar(255) NOT NULL,
+'Email' varchar(255) NOT NULL,
+'Subject' varchar(255) NOT NULL,
+'Message' varchar(255) NOT NULL,
+PRIMARY KEY ('student_id')
+)

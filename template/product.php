@@ -83,7 +83,7 @@ session_start();
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav mx-auto">
-            <li class="nav-item active px-lg-4">
+            <li class="nav-item px-lg-4">
               <a class="nav-link text-uppercase text-expanded" href="index1.php">Home
                 <span class="sr-only">(current)</span>
               </a>
@@ -95,9 +95,12 @@ session_start();
               <a class="nav-link text-uppercase text-expanded" href="contact.php">Contact Us</a>
             </li>
             <li class="nav-item px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="authentication/index.php">Login/Register</a>
+              <a class="nav-link text-uppercase text-expanded" href="login.php">Login/Register</a>
             </li>
             <li class="nav-item px-lg-4">
+              <a class="nav-link text-uppercase text-expanded" href="registration.php">Product Registration</a>
+            </li>
+            <li class="nav-item active px-lg-4">
               <a class="nav-link text-uppercase text-expanded" href="product.php">Shop Now</a>
             </li>
                             <li>
@@ -113,17 +116,21 @@ session_start();
         	<div class="row">
         		<div class="col-md-9 col-xs-9" style="background-color: #eeeeee; margin: auto; padding: 50px; margin-top: 20px;">
 					<div class="row" style="padding-top: 50px;">
-						<?php
+						
+                        <?php
 
-							$connection = mysql_connect("localhost", "root", "");
-							$db=mysql_select_db("angularcode",$connection);
-							$query=mysql_query("SELECT * FROM products", $connection);
-							
-							if (!$query) {
-								die("Error: ".mysql_error());
-							}
+							$con = mysqli_connect("localhost","root","","angularcode");
 
-							while ($row = mysql_fetch_assoc($query)) {
+							// Check connection
+                            if (mysqli_connect_errno())
+                            {
+                            echo "Failed to connect to MySQL: " . mysqli_connect_error();
+                            }
+						
+                            $sql="SELECT * FROM products";
+                            $result=mysqli_query($con,$sql);
+                           
+							while ($row = mysqli_fetch_assoc($result)) {
 								$image = $row["image_location"];
 
 								echo 

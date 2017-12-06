@@ -75,6 +75,7 @@
         <li><a href="about.php">About</a></li>
         <li><a href="contact.php">Contact Us</a></li> 
         <li><a href="login.php">Login/Register</a></li> 
+        <li><a href="login.php">Product Registration</a></li>
         <li><a href="product.php">Shop Now</a></li> 
       </ul>
    

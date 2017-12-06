@@ -8,7 +8,8 @@ app.controller('authCtrl', function ($scope, $rootScope, $routeParams, $location
         }).then(function (results) {
             Data.toast(results);
             if (results.status == "success") {
-                $location.path('index');
+                $location.path('/index');
+               
             }
         });
     };
@@ -19,14 +20,14 @@ app.controller('authCtrl', function ($scope, $rootScope, $routeParams, $location
         }).then(function (results) {
             Data.toast(results);
             if (results.status == "success") {
-                $location.path('dashboard');
+                $location.path('/dashboard');
             }
         });
     };
     $scope.logout = function () {
         Data.get('logout').then(function (results) {
             Data.toast(results);
-            $location.path('login');
+            $location.path('/login');
         });
     }
 });

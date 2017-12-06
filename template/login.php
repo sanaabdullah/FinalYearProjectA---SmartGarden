@@ -8,13 +8,16 @@
           <title>Welcome to Smart Garden</title>
           <!-- Bootstrap -->
           <link href="css/bootstrap.min.css" rel="stylesheet">
-            <link href="css/custom.css" rel="stylesheet">
+          
+         <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css">
+
               <link href="css/toaster.css" rel="stylesheet">
-                <style>
-                  a {
-                  color: orange;
-                  }
-                </style>
+
                 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
                 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
                 <!--[if lt IE 9]><link href= "css/bootstrap-theme.css"rel= "stylesheet" >
@@ -25,7 +28,7 @@
               </head>
 
  <body ng-cloak="">
-   <nav class="navbar navbar-expand-lg navbar-light bg-faded py-lg-4">
+   <nav class="navbar navbar-default navbar-expand-lg navbar-light bg-faded py-lg-4">
       <div class="container">
         <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="#">Smart Garden</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -45,7 +48,7 @@
               <a class="nav-link text-uppercase text-expanded" href="contact.php">Contact Us</a>
             </li>
             <li class="nav-item px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="../login.php">Login/Register</a>
+              <a class="nav-link text-uppercase text-expanded" href="login.php">Login/Register</a>
             </li>
             <li class="nav-item px-lg-4">
               <a class="nav-link text-uppercase text-expanded" href="registration.php">Product Registration</a>

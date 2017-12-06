@@ -37,18 +37,24 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav mx-auto">
             <li class="nav-item px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="index.html">Home
+              <a class="nav-link text-uppercase text-expanded" href="index1.php">Home
                 <span class="sr-only">(current)</span>
               </a>
             </li>
             <li class="nav-item px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="about.html">About</a>
+              <a class="nav-link text-uppercase text-expanded" href="about.php">About</a>
             </li>
             <li class="nav-item active px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="contact.html">Contact Us</a>
+              <a class="nav-link text-uppercase text-expanded" href="contact.php">Contact Us</a>
             </li>
             <li class="nav-item px-lg-4">
               <a class="nav-link text-uppercase text-expanded" href="login.php">Login/Register</a>
+            </li>
+            <li class="nav-item px-lg-4">
+              <a class="nav-link text-uppercase text-expanded" href="registration.php">Product Registration</a>
+            </li>
+            <li class="nav-item px-lg-4">
+              <a class="nav-link text-uppercase text-expanded" href="product.php">Shop Now</a>
             </li>
           </ul>
         </div>
@@ -95,33 +101,71 @@
           <strong>Form</strong>
         </h2>
         <hr class="divider">
-        <form>
+       <form id=myform method="post">
           <div class="row">
             <div class="form-group col-lg-4">
               <label class="text-heading">Name</label>
-              <input type="text" class="form-control">
+              <input type="text" name="u_name" id="name" class="form-control">
             </div>
             <div class="form-group col-lg-4">
               <label class="text-heading">Email Address</label>
-              <input type="email" class="form-control">
+              <input type="email" name="u_email" id="email" class="form-control">
             </div>
             <div class="form-group col-lg-4">
-              <label class="text-heading">Phone Number</label>
-              <input type="tel" class="form-control">
+              <label class="text-heading">Subject</label>
+              <input type="text" name="subj" id="subject" class="form-control">
             </div>
             <div class="clearfix"></div>
             <div class="form-group col-lg-12">
               <label class="text-heading">Message</label>
-              <textarea class="form-control" rows="6"></textarea>
+              <textarea class="form-control" name="msg" id="message" rows="6"></textarea>
             </div>
             <div class="form-group col-lg-12">
-              <button type="submit" class="btn btn-secondary">Submit</button>
-            </div>
-          </div>
+              <button type="submit" class="btn btn-secondary" onClick="alert('Your form has been submitted!'); return true">Submit</button>
+            </div>     
+     </div>
         </form>
       </div>
 
     </div>
+      
+      <?php
+if(isset($_POST["submit"])){
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "angularcode";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+die("Connection failed: " . $conn->connect_error);
+}
+
+// sql to create table
+$sql = "CREATE TABLE contact (
+'ID' int(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+'Name' varchar(50) NOT NULL,
+'Email' varchar(50) NOT NULL,
+'Subject' varchar(200) NOT NULL,
+'Message' varchar(200) NOT NULL,
+'Created' timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+)";
+
+$sql = "INSERT INTO contact(Name, Email, Subject, Message)
+VALUES ('".$_POST["u_name"]."','".$_POST["u_email"]."','".$_POST["subj"]."','".$_POST["msg"]."')";
+
+if ($conn->query($sql) === TRUE) {
+echo "<script type= 'text/javascript'>alert('New record created successfully');</script>";
+} else {
+echo "<script type= 'text/javascript'>alert('Error: " . $sql . "<br>" . $conn->error."');</script>";
+}
+
+$conn->close();
+}
+?>
+
     <!-- /.container -->
 
     <footer class="bg-faded text-center py-5">

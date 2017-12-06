@@ -71,13 +71,16 @@ session_start();
               <a class="nav-link text-uppercase text-expanded" href="contact.php">Contact Us</a>
             </li>
             <li class="nav-item px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="authentication/index.php">Login/Register</a>
+              <a class="nav-link text-uppercase text-expanded" href="login.php">Login/Register</a>
             </li>
             <li class="nav-item px-lg-4">
+              <a class="nav-link text-uppercase text-expanded" href="registration.php">Product Registration</a>
+            </li>
+            <li class="nav-item active px-lg-4">
               <a class="nav-link text-uppercase text-expanded" href="product.php">Shop Now</a>
             </li>
-                            <li>
-                  <a href='cart_item.php'><span class='glyphicon glyphicon-shopping-cart'></span></a>
+              <li>
+             <a href='cart_item.php'><span class='glyphicon glyphicon-shopping-cart'></span></a>
               </li>
           </ul>
         </div>
@@ -88,14 +91,20 @@ session_start();
             <table style="max-width:900px; background-color: white; margin:auto;text-align: center;"> 
             <?php
                 $pt=0;
-                $connection = mysql_connect("localhost", "root", "");
-                $db=mysql_select_db("angularcode",$connection);
-                $query=mysql_query("SELECT * FROM cart WHERE buyer_id='200'", $connection);
+               	$con = mysqli_connect("localhost","root","","angularcode");
+                	
+                // Check connection
+                if (mysqli_connect_errno())
+                {
+                echo "Failed to connect to MySQL: " . mysqli_connect_error();
+                }
+						
+                $sql="SELECT * FROM cart WHERE buyer_id='200'";
+                $result=mysqli_query($con,$sql);
+                           
                 $x = 1;
 
-                if (!$query) {
-                    die("Error: ".mysql_error());
-                }
+               
                 echo "
                     <tr>
                         <th>No</th>
@@ -107,13 +116,16 @@ session_start();
                     </tr>
                 ";
 
-                while ($row = mysql_fetch_assoc($query)) 
+                while ($row = mysqli_fetch_assoc($result)) 
                 {  
 					$recordID=$row['cartID'];
                     $quantity_order=1;
 					$productID = $row['product_id'];
-					$sql=mysql_query("SELECT * FROM products where ID = $productID", $connection);
-						while ($row = mysql_fetch_assoc($sql)) {
+					
+                    $sql="SELECT * FROM products where ID = $productID";
+                    $result=mysqli_query($con,$sql);
+                    
+				    while ($row = mysqli_fetch_assoc($result)) {
 							$image = $row['image_location'];
                             $pt+=($row['price']*$quantity_order);
 							echo "

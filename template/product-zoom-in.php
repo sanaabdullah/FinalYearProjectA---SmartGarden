@@ -72,9 +72,12 @@ session_start();
               <a class="nav-link text-uppercase text-expanded" href="contact.php">Contact Us</a>
             </li>
             <li class="nav-item px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="authentication/index.php">Login/Register</a>
+              <a class="nav-link text-uppercase text-expanded" href="login.php">Login/Register</a>
             </li>
             <li class="nav-item px-lg-4">
+              <a class="nav-link text-uppercase text-expanded" href="registration.php">Product Registration</a>
+            </li>            
+            <li class="nav-item active px-lg-4">
               <a class="nav-link text-uppercase text-expanded" href="product.php">Shop Now</a>
             </li>
               <li>
@@ -90,15 +93,20 @@ session_start();
 				<?php 
                     
 					$received_id = $_GET['id'];
-					$connection = mysql_connect("localhost", "root", "");
-					$db=mysql_select_db("angularcode",$connection);
-					$query=mysql_query("SELECT * FROM products WHERE ID = $received_id", $connection);
+					$con = mysqli_connect("localhost","root","","angularcode");
+                
+                    // Check connection
+                    if (mysqli_connect_errno())
+                    {
+                    echo "Failed to connect to MySQL: " . mysqli_connect_error();
+                    }
+
+                    $sql="SELECT * FROM products WHERE ID = $received_id";
+                    $result=mysqli_query($con,$sql);
 					
-					if (!$query) {
-						die("Error: ".mysql_error());
-					}
-					while ($row = mysql_fetch_assoc($query)) {
-						$name = $row['name'];
+                    while ($row = mysqli_fetch_assoc($result)) {
+				
+                        $name = $row['name'];
 						$image = $row['image_location'];
 						$price = $row['price'];
 						$desc = $row['description'];

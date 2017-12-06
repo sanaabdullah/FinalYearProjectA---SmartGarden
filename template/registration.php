@@ -44,11 +44,14 @@
             <li class="nav-item px-lg-4">
               <a class="nav-link text-uppercase text-expanded" href="about.php">About</a>
             </li>
-            <li class="nav-item active px-lg-4">
+            <li class="nav-item px-lg-4">
               <a class="nav-link text-uppercase text-expanded" href="contact.php">Contact Us</a>
             </li>
             <li class="nav-item px-lg-4">
               <a class="nav-link text-uppercase text-expanded" href="login.php">Login/Register</a>
+            </li>
+            <li class="nav-item active px-lg-4">
+              <a class="nav-link text-uppercase text-expanded" href="registration.php">Product Registration</a>
             </li>
             <li class="nav-item px-lg-4">
               <a class="nav-link text-uppercase text-expanded" href="product.php">Shop Now</a>
@@ -62,64 +65,24 @@
 
       <div class="bg-faded p-4 my-4">
         <hr class="divider">
-        <h2 class="text-center text-lg text-uppercase my-0">Contact
-          <strong>Smart Garden</strong>
+        <h2 class="text-center text-lg text-uppercase my-0">Register
+          <strong>Your Product</strong>
         </h2>
         <hr class="divider">
-        <div class="row">
-          <div class="col-lg-8">
-            <div class="embed-responsive embed-responsive-16by9 map-container mb-4 mb-lg-0">
-              <iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?hl=en&amp;ie=UTF8&amp;ll=37.0625,-95.677068&amp;spn=56.506174,79.013672&amp;t=m&amp;z=4&amp;output=embed"></iframe>
-            </div>
-          </div>
-          <div class="col-lg-4">
-            <h5 class="mb-0">Phone:</h5>
-            <div class="mb-4">+60143988314</div>
-            <h5 class="mb-0">Email:</h5>
-            <div class="mb-4">
-              <a href="mailto:name@example.com">4323904@students.swinburne.edu.my</a>
-            </div>
-            <h5 class="mb-0">Address:</h5>
-            <div class="mb-4">
-              Swinburne University of Technology
-              Sarawak Campus
-              <br>
-              Jalan Simpang Tiga
-              <br>
-              93350 Kuching, Sarawak, Malaysia
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="bg-faded p-4 my-4">
-        <hr class="divider">
-        <h2 class="text-center text-lg text-uppercase my-0">Contact
-          <strong>Form</strong>
-        </h2>
-        <hr class="divider">
-      <form action="thankyou.php" method="post">
+          <br>
+       <form id=myform>
           <div class="row">
             <div class="form-group col-lg-4">
-                <br>
-              <label class="text-heading">Name: </label>
-               <input type="text" name="u_name" required><br>
+              <label class="text-heading">Raspberry Pi ID</label>
+              <input type="id" class="form-control">
             </div>
             <div class="form-group col-lg-4">
-                <br>
-              <label class="text-heading">Email Address: </label>
-               <input type="email" name="u_email" required><br>
+              <label class="text-heading">Email Address</label>
+              <input type="email" class="form-control">
             </div>
             <div class="form-group col-lg-4">
-                <br>
-              <label class="text-heading">Subject: </label>
-              <input type="text" name="subj" required>
-            </div>
-            <div class="clearfix"></div>
-            <div class="form-group col-lg-12">
-                <br>
-              <label class="text-heading">Message: </label>
-             <input type="text" name="message" required>
+              <label class="text-heading">Purchase Date</label>
+              <input type="date" class="form-control">
             </div>
             <div class="form-group col-lg-12">
               <button type="submit" class="btn btn-secondary" onClick="alert('Your form has been submitted!'); return true">Submit</button>
