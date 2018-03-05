@@ -24,24 +24,23 @@
     <!-- Custom CSS -->
     <link href="SmartGarden/dist/css/sb-admin-2.css" rel="stylesheet">
 
-    <!-- Morris Charts CSS -->
     <link href="SmartGarden/vendor/morrisjs/morris.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="SmartGarden/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
-<!-- Include main CSS -->
- <link href="https://bootswatch.com/simplex/bootstrap.min.css" rel="stylesheet"/>
+    <!-- Include main CSS -->
+     <link href="https://bootswatch.com/simplex/bootstrap.min.css" rel="stylesheet"/>
 
-<!-- Include jQuery library -->
-<script src="bootstrap-3.3.7-dist/js/jQuery/jquery.min.js"></script>
+    <!-- Include jQuery library -->
+    <script src="bootstrap-3.3.7-dist/js/jQuery/jquery.min.js"></script>
 
-<!-- Include AngularJS library -->
-<script src="bootstrap-3.3.7-dist/lib/angular/angular.min.js"></script>
+    <!-- Include AngularJS library -->
+    <script src="bootstrap-3.3.7-dist/lib/angular/angular.min.js"></script>
 
-<!-- Include Bootstrap Javascript -->
-<script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-<script src="angular-script-1.js"></script>
+    <!-- Include Bootstrap Javascript -->
+    <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <script src="angular-script-1.js"></script>
 
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -61,41 +60,44 @@
 
         <!-- Navigation -->
         <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            
+            <!-- Navbar heeader -->
             <div class="navbar-header">
+                
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
-                    
                 </button>
-                        <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
-        <li><a href="index1.php">Home</a></li>
-        <li><a href="about.php">About</a></li>
-        <li><a href="contact.php">Contact Us</a></li> 
-        <li><a href="login.php">Login/Register</a></li> 
-        <li><a href="login.php">Product Registration</a></li>
-        <li><a href="product.php">Shop Now</a></li> 
-      </ul>
-   
-    </div>
+                
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav">
+                        <li><a href="index1.php">Home</a></li>
+                        <li><a href="about.php">About</a></li>
+                        <li><a href="contact.php">Contact Us</a></li> 
+                        <li><a href="login.php">Login/Register</a></li> 
+                        <li><a href="login.php">Product Registration</a></li>
+                        <li><a href="product.php">Shop Now</a></li> 
+                    </ul>
+                </div>
+                
                 <a class="navbar-brand" href="index.php">Welcome to SmartGarden</a>
             </div>
-            <!-- /.navbar-header -->
+            <!-- /end Navbar heeader -->
 
+            <!-- .navbar-top-links -->
             <ul class="nav navbar-top-links navbar-right">
-                
-       <button type="button" class="btn btn-default btn-sm pull-right" ng-click="logout();">
-          <span class="glyphicon glyphicon-log-out"></span> Log out
-        </button>
-            
+                <button type="button" class="btn btn-default btn-sm pull-right" ng-click="logout();">
+                    <span class="glyphicon glyphicon-log-out"></span> Log out
+                </button>
             </ul>
             <!-- /.navbar-top-links -->
 
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
+                        
                         <li class="sidebar-search">
                             <div class="input-group custom-search-form">
                                 <input type="text" class="form-control" placeholder="Search...">
@@ -107,23 +109,26 @@
                             </div>
                             <!-- /input-group -->
                         </li>
+                        
                         <li>
-                            <a href="SmartGarden/pages/index.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                            <a href="index.php"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                             
                         </li>
+                        
                         <li>
                             <a href="#"><i class="fa fa-wrench fa-fw"></i> Settings<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="manual_settings.php">Manual Settings</a>
+                                    <a href="#">Manual Settings</a>
                                 </li>
                                 <li>
-                                    <a href="advance_settings.php">Advance Settings</a>
+                                    <a href="#">Advance Settings</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
-                         <li>
+                        
+                        <li>
                             <a href="temp.php"><i class="fa fa-dashboard fa-fw"></i> Setup</a>
                             
                         </li>
