@@ -24,6 +24,7 @@
     <!-- Custom CSS -->
     <link href="SmartGarden/dist/css/sb-admin-2.css" rel="stylesheet">
 
+    <!-- Morris Charts CSS -->
     <link href="SmartGarden/vendor/morrisjs/morris.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
