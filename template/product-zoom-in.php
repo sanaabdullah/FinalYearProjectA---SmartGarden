@@ -110,7 +110,7 @@ session_start();
 						$image = $row['image_location'];
 						$price = $row['price'];
 						$desc = $row['description'];
-                        $quantity=$row['quantity'];
+                        $quantity = $row['quantity'];
 						
 					}					
 				?>
@@ -139,7 +139,23 @@ session_start();
 											<input type='submit' name='check2' id='check2' value='Add to Cart' style='padding:10px 20px 10px 20px; font-size:120%;'>  
 										</form> 
 									";	
-				
+
+							if(isset($_POST['check2'])) {
+								$conn=mysql_connect("localhost","root","");
+								// $buyerID=$_SESSION['ID'];
+                                $received_id = $_GET['id'];
+								$quantityReq=$_POST['qu'];
+								$db=mysql_select_db("angularcode",$conn);
+                        
+                                // Dummies data for the buyer_id, since that the log in function is in MAINTANENCE. Should be make it $buyerID once maintanence is done.
+								$query=mysql_query("INSERT INTO cart (buyer_id,product_id,quantity_id)
+									VALUES ('200','$received_id','$quantityReq')",$conn);
+                        
+								if (!$query) {
+									die("Error ".mysql_error());
+									# code...
+								}
+                            }
 						?>
                     </div>
                 </div>
