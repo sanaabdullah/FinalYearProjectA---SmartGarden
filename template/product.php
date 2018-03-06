@@ -71,45 +71,53 @@ session_start();
 
   <body>
 
-    <div class="tagline-upper text-center text-heading text-shadow text-white mt-5 d-none d-lg-block">Smart Garden</div>
-    <div class="tagline-lower text-center text-expanded text-shadow text-uppercase text-white mb-5 d-none d-lg-block">Swinburne University | Kuching, SWK 93350 | +60143988314</div>
+    <!-- Banner -->
+    <div class="tagline-upper text-center text-heading text-shadow text-white mt-5 d-none d-lg-block">
+        Smart Garden
+    </div>
+
+    <div class="tagline-lower text-center text-expanded text-shadow text-uppercase text-white mb-5 d-none d-lg-block">
+        Swinburne University | Kuching, SWK 93350 | +60143988314
+    </div>
+    <!-- /End Banner -->
 
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light bg-faded py-lg-4">
-      <div class="container">
-        <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="#">Smart Garden</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav mx-auto">
-            <li class="nav-item px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="index1.php">Home
-                <span class="sr-only">(current)</span>
-              </a>
-            </li>
-            <li class="nav-item px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="about.php">About</a>
-            </li>
-            <li class="nav-item px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="contact.php">Contact Us</a>
-            </li>
-            <li class="nav-item px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="login.php">Login/Register</a>
-            </li>
-            <li class="nav-item px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="registration.php">Product Registration</a>
-            </li>
-            <li class="nav-item active px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="product.php">Shop Now</a>
-            </li>
-                            <li>
-                  <a href='cart_item.php'><span class='glyphicon glyphicon-shopping-cart'></span></a>
-              </li>
-          </ul>
+        <div class="container">
+            <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="#">Smart Garden</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item active px-lg-4">
+                        <a class="nav-link text-uppercase text-expanded" href="index1.php">Home
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item px-lg-4">
+                        <a class="nav-link text-uppercase text-expanded" href="about.php">About</a>
+                    </li>
+                    <li class="nav-item px-lg-4">
+                        <a class="nav-link text-uppercase text-expanded" href="contact.php">Contact Us</a>
+                    </li>
+                    <li class="nav-item px-lg-4">
+                        <a class="nav-link text-uppercase text-expanded" href="login.php">Login/Register</a>
+                    </li>
+                    <li class="nav-item px-lg-4">
+                        <a class="nav-link text-uppercase text-expanded" href="registration.php">Product Registration</a>
+                    </li>
+                    <li class="nav-item active px-lg-4">
+                        <a class="nav-link text-uppercase text-expanded" href="product.php">Shop Now</a>
+                    </li>
+                    <li>
+                        <a href='cart_item.php'><span class='glyphicon glyphicon-shopping-cart'></span></a>
+                    </li>
+                </ul>
+            </div>
         </div>
-      </div>
     </nav>
+    <!-- /End Navigation -->
 
     <div>
         <div class="container">
@@ -124,7 +132,7 @@ session_start();
 							// Check connection
                             if (mysqli_connect_errno())
                             {
-                            echo "Failed to connect to MySQL: " . mysqli_connect_error();
+                                echo "Failed to connect to MySQL: " . mysqli_connect_error();
                             }
 						
                             $sql="SELECT * FROM products";
@@ -146,16 +154,16 @@ session_start();
 				</div>
 			</div>
         </div>
-      
-
     </div>
     <!-- /.container -->
 
+    <!-- Footer -->
     <footer class="bg-faded text-center py-5">
-      <div class="container">
-        <p class="m-0">Copyright &copy; Smart Garden 2017</p>
-      </div>
+        <div class="container">
+            <p class="m-0">Copyright &copy; Smart Garden 2017</p>
+        </div>
     </footer>
+    <!-- /End Footer -->
 
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>

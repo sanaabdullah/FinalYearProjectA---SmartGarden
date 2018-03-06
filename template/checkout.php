@@ -55,8 +55,6 @@ session_start();
 				border-bottom: 1px solid #555;
 			}
 
-			
-
 			li a.active {
 				background-color: dimgray;
 				color: white;
@@ -120,7 +118,6 @@ session_start();
 
     <div style="max-width:1200px; padding:40px; background-color: white; margin:auto;">
             <div class="row" style="max-width:1000px; padding:30px; background-color: white; margin:auto;">
-                
                 <div class="col-sm-7 container" style="padding:0px; background-color: white; margin:auto;">
                     <div class="panel panel-info">
                         <div class="panel-heading">Select Preferrred Date, Time &amp; Shipping Address</div>
@@ -221,9 +218,7 @@ session_start();
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-1 container" style="padding:20px; background-color: white; margin:auto;">
-                    
-                </div>
+                <div class="col-sm-1 container" style="padding:20px; background-color: white; margin:auto;"></div>
                 <div class="col-sm-4 container" style="padding:0px; background-color: white; margin:auto;">
                     <div class="panel panel-info">
                         <div class="panel-heading">Order Summary</div>
@@ -390,11 +385,13 @@ session_start();
 			 </div>
         </div>  
       
+    <!-- Footer -->
     <footer class="bg-faded text-center py-5">
-      <div class="container">
-        <p class="m-0">Copyright &copy; Smart Garden 2017</p>
-      </div>
+        <div class="container">
+            <p class="m-0">Copyright &copy; Smart Garden 2017</p>
+        </div>
     </footer>
+    <!-- /End Footer -->
 
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
