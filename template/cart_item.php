@@ -46,65 +46,74 @@ session_start();
   </head>
 
   <body>
+    <!-- Banner -->
+    <div class="tagline-upper text-center text-heading text-shadow text-white mt-5 d-none d-lg-block">
+        Smart Garden
+    </div>
 
-    <div class="tagline-upper text-center text-heading text-shadow text-white mt-5 d-none d-lg-block">Smart Garden</div>
-    <div class="tagline-lower text-center text-expanded text-shadow text-uppercase text-white mb-5 d-none d-lg-block">Swinburne University | Kuching, SWK 93350 | +60143988314</div>
+    <div class="tagline-lower text-center text-expanded text-shadow text-uppercase text-white mb-5 d-none d-lg-block">
+        Swinburne University | Kuching, SWK 93350 | +60143988314
+    </div>
+    <!-- /End Banner -->
 
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light bg-faded py-lg-4">
-      <div class="container">
-        <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="#">Smart Garden</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav mx-auto">
-            <li class="nav-item active px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="index1.php">Home
-                <span class="sr-only">(current)</span>
-              </a>
-            </li>
-            <li class="nav-item px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="about.php">About</a>
-            </li>
-            <li class="nav-item px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="contact.php">Contact Us</a>
-            </li>
-            <li class="nav-item px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="login.php">Login/Register</a>
-            </li>
-            <li class="nav-item px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="registration.php">Product Registration</a>
-            </li>
-            <li class="nav-item active px-lg-4">
-              <a class="nav-link text-uppercase text-expanded" href="product.php">Shop Now</a>
-            </li>
-              <li>
-             <a href='cart_item.php'><span class='glyphicon glyphicon-shopping-cart'></span></a>
-              </li>
-          </ul>
+        <div class="container">
+            <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="#">Smart Garden</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item active px-lg-4">
+                        <a class="nav-link text-uppercase text-expanded" href="index1.php">Home
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item px-lg-4">
+                        <a class="nav-link text-uppercase text-expanded" href="about.php">About</a>
+                    </li>
+                    <li class="nav-item px-lg-4">
+                        <a class="nav-link text-uppercase text-expanded" href="contact.php">Contact Us</a>
+                    </li>
+                    <li class="nav-item px-lg-4">
+                        <a class="nav-link text-uppercase text-expanded" href="login.php">Login/Register</a>
+                    </li>
+                    <li class="nav-item px-lg-4">
+                        <a class="nav-link text-uppercase text-expanded" href="registration.php">Product Registration</a>
+                    </li>
+                    <li class="nav-item active px-lg-4">
+                        <a class="nav-link text-uppercase text-expanded" href="product.php">Shop Now</a>
+                    </li>
+                    <li>
+                        <a href='cart_item.php'><span class='glyphicon glyphicon-shopping-cart'></span></a>
+                    </li>
+                </ul>
+            </div>
         </div>
-      </div>
     </nav>
-<div style="max-width:1200px; padding:50px; background-color: white; margin:auto;">
-         <div class="row" style="max-width:900px; padding:50px; background-color: white; margin:auto;">
+    <!-- /End Navigation -->
+      
+    <!-- Show a list of products (retrived from database) -->
+    <div style="max-width:1200px; padding:50px; background-color: white; margin:auto;">
+        <div class="row" style="max-width:900px; padding:50px; background-color: white; margin:auto;">
             <table style="max-width:900px; background-color: white; margin:auto;text-align: center;"> 
+
             <?php
                 $pt=0;
-               	$con = mysqli_connect("localhost","root","","angularcode");
-                	
+                $con = mysqli_connect("localhost","root","","angularcode");
+
                 // Check connection
                 if (mysqli_connect_errno())
                 {
                 echo "Failed to connect to MySQL: " . mysqli_connect_error();
                 }
-						
+
                 $sql="SELECT * FROM cart WHERE buyer_id='200'";
                 $result=mysqli_query($con,$sql);
-                           
+
                 $x = 1;
 
-               
                 echo "
                     <tr>
                         <th>No</th>
@@ -118,56 +127,57 @@ session_start();
 
                 while ($row = mysqli_fetch_assoc($result)) 
                 {  
-					$recordID=$row['cartID'];
+                    $recordID=$row['cartID'];
                     $quantity_order=1;
-					$productID = $row['product_id'];
-					
+                    $productID = $row['product_id'];
+
                     $sql="SELECT * FROM products where ID = $productID";
                     $result=mysqli_query($con,$sql);
-                    
-				    while ($row = mysqli_fetch_assoc($result)) {
-							$image = $row['image_location'];
+
+                    while ($row = mysqli_fetch_assoc($result)) {
+                            $image = $row['image_location'];
                             $pt+=($row['price']*$quantity_order);
-							echo "
-								<tr>
-									<td>".$x."</td>
-									<td><a><img src='$image' alt='img' height='50'></a></td>
-									<td><a href='product-zoom-in.php?id=". $productID."'>". $row['name']."</a></td>
-									<td>". $row['price']."</td>
-									<td>". $quantity_order."</td> <!-- thinking to make the quantity to let the user + and - -->
-									<td><a href='php/delete_cart.php?id=".$recordID."'>Delete</a></td>
-								</tr>
-							";
-							$x += 1;
-						}
+                            echo "
+                                <tr>
+                                    <td>".$x."</td>
+                                    <td><a><img src='$image' alt='img' height='50'></a></td>
+                                    <td><a href='product-zoom-in.php?id=". $productID."'>". $row['name']."</a></td>
+                                    <td>". $row['price']."</td>
+                                    <td>". $quantity_order."</td> <!-- thinking to make the quantity to let the user + and - -->
+                                    <td><a href='php/delete_cart.php?id=".$recordID."'>Delete</a></td>
+                                </tr>
+                            ";
+                            $x += 1;
+                        }
                 }
 
-                
+                echo "
+                    <tr>
+                        <td colspan='5' style='text-align:right;'><h2>Total:</h2></td>
+                        <td><h2>$pt</h2></td>
+                    </tr>
+                ";
             ?>
-                <?php 
-                    echo "
-                        <tr>
-                            <td colspan='5' style='text-align:right;'><h2>Total:</h2></td>
-                            <td><h2>$pt</h2></td>
-                        </tr>
-                    ";
-                ?>
-             </table> <hr/>
-    </div>
-             <div style="margin: auto;text-align: center;">
-             <form method="post" action="index1.php">
-                <button name="submit" type="submit" value="Checkout" id="check2" name="check2" class="w3-button w3-xlarge w3-block w3-section w3-hover-green w3-grey w3-ripple w3-padding">CHECK OUT</button>
-             </form>
-             </div>
-            
-             
-    </div>
+            </table> <hr/>
+        </div>
 
+        <!-- Checkout Button -->
+        <div style="margin: auto;text-align: center;">
+            <form method="post" action="index1.php">
+                <button name="submit" type="submit" value="Checkout" id="check2" name="check2" class="w3-button w3-xlarge w3-block w3-section w3-hover-green w3-grey w3-ripple w3-padding">CHECK OUT</button>
+            </form>
+        </div>
+        <!-- /End Checkout Button -->
+    </div>
+    <!-- /End Show a list of products (retrived from database) -->
+
+    <!-- Footer -->
     <footer class="bg-faded text-center py-5">
-      <div class="container">
-        <p class="m-0">Copyright &copy; Smart Garden 2017</p>
-      </div>
+        <div class="container">
+            <p class="m-0">Copyright &copy; Smart Garden 2017</p>
+        </div>
     </footer>
+    <!-- /End Footer -->
 
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
