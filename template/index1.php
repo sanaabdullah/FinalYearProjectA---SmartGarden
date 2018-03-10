@@ -111,9 +111,9 @@
         </h2>
         <hr class="divider">
         <img class="img-fluid float-left mr-4 d-none d-lg-block" src="img/intro-pic.jpg" alt="">
-        <p><h4>-> Cost-effective</h4></p>
-        <p><h4>-> Efficient</h4></p>
-        <p><h4>-> Reliable</h4></p>
+        <h4>-> Cost-effective</h4>
+        <h4>-> Efficient</h4>
+        <h4>-> Reliable</h4>
       </div>
 
 
