@@ -55,8 +55,6 @@ session_start();
 				border-bottom: 1px solid #555;
 			}
 
-			
-
 			li a.active {
 				background-color: dimgray;
 				color: white;

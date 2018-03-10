@@ -140,7 +140,10 @@ session_start();
 										</form> 
 									";	
 
-							if(isset($_POST['check2'])) {
+                        ?>
+                        <?php 
+							if(isset($_POST['check2'])) 
+                            {
 								$conn=mysql_connect("localhost","root","");
 								// $buyerID=$_SESSION['ID'];
                                 $received_id = $_GET['id'];
@@ -149,7 +152,7 @@ session_start();
                         
                                 // Dummies data for the buyer_id, since that the log in function is in MAINTANENCE. Should be make it $buyerID once maintanence is done.
 								$query=mysql_query("INSERT INTO cart (buyer_id,product_id,quantity_id)
-									VALUES ('200','$received_id','$quantityReq')",$conn);
+									VALUES ('100','1','1')",$conn);
                         
 								if (!$query) {
 									die("Error ".mysql_error());
